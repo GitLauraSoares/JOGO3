@@ -143,10 +143,24 @@
   }
 
   function salvarPlacar(nome, tempo, erros) {
-    const dados = JSON.parse(localStorage.getItem('placarAmarelinha') || '[]');
-    dados.push({ nome, tempo, erros, data: new Date().toISOString() });
-    localStorage.setItem('placarAmarelinha', JSON.stringify(dados));
-  }
+  const payload = {
+    nome: nome,
+    tempo: tempo,
+    erros: erros
+  };
+
+  fetch("https://script.google.com/macros/s/AKfycbxnmT5WSnS_jRkM_oBvlwimgFOGd-klh42bt86BgecFOvX6AMfTFwgY0jc1TNdgONOB/exec", {
+    method: "POST",
+    body: JSON.stringify(payload),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+  .then(r => r.text())
+  .then(msg => console.log("Placar enviado com sucesso:", msg))
+  .catch(err => console.error("Erro ao enviar placar:", err));
+}
+
 
   window.addEventListener('load', () => {
   document.getElementById('fim-jogo-overlay').style.display = 'none';
