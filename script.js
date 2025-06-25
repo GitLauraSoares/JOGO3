@@ -143,23 +143,18 @@
   }
 
   function salvarPlacar(nome, tempo, erros) {
-  const payload = {
-    nome: nome,
-    tempo: tempo,
-    erros: erros
-  };
+  const payload = { nome, tempo, erros };
 
   fetch("https://script.google.com/macros/s/AKfycbzEHFIpfR5FoJ4zx06BqmxxePwu8NEml5FOTJyPcWX27U0xz3SY8in1gRvNUT-NuOxS/exec", {
     method: "POST",
     body: JSON.stringify(payload),
-    headers: {
-      "Content-Type": "application/json"
-    }
+    headers: { "Content-Type": "application/json" }
   })
-  .then(r => r.text())
-  .then(msg => console.log("Placar enviado com sucesso:", msg))
-  .catch(err => console.error("Erro ao enviar placar:", err));
+  .then(res => res.text())
+  .then(texto => console.log("Resposta do servidor:", texto))
+  .catch(erro => console.error("Erro ao enviar placar:", erro));
 }
+
 
 
   window.addEventListener('load', () => {
