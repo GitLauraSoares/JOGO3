@@ -145,15 +145,16 @@
   function salvarPlacar(nome, tempo, erros) {
   const payload = { nome, tempo, erros };
 
-  fetch("https://trilha.laurasoares-soaress.workers.dev/", { // <-- URL do Worker, não do Apps Script
-  method: "POST",
-  body: JSON.stringify(payload),
-  headers: { "Content-Type": "application/json" }
-})
-.then(res => res.text())
-.then(texto => console.log("Resposta do servidor:", texto))
-.catch(erro => console.error("Erro ao enviar placar:", erro));
+  fetch("https://trilha.laurasoares-soaress.workers.dev/", { // URL do seu Worker no Cloudflare
+    method: "POST",
+    body: JSON.stringify(payload),
+    headers: { "Content-Type": "application/json" }
+  })
+  .then(res => res.text())
+  .then(texto => console.log("Resposta do servidor:", texto))
+  .catch(erro => console.error("Erro ao enviar placar:", erro));
 }
+
 
 
 
