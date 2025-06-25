@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<title>Jogo da Amarelinha</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <script src="script.js" defer></script>
+<header id="header-fixo">
+  <div id="formulario">
+    <input type="text" id="nome" placeholder="Digite seu nome" autocomplete="off" />
+    <button onclick="iniciarJogo()">Iniciar Jogo</button>
+  </div>
+
+  <div id="info">
+    Erros: <span id="erros">0</span> | Tempo: <span id="tempo">00:00</span>
+  </div>
+</header>
+
+<main style="padding-top: 120px;">
+  <h1>Jogo da Amarelinha</h1>
+
+  <div id="tabuleiro-container">
+    <div id="tabuleiro"></div>
+  </div>
+
+  <div id="placar"></div>
+</main>
+
+<div id="fim-jogo-overlay" role="alert" aria-live="assertive" aria-atomic="true" aria-label="Fim do jogo">
+  <strong>🏁 Fim de jogo!</strong>
+  <div>👤 Jogador: <span id="fim-nome"></span></div>
+  <div>⏱️ Tempo: <span id="fim-tempo"></span></div>
+  <div>❌ Erros: <span id="fim-erros"></span></div>
+</div>
+</body>
+</html>
