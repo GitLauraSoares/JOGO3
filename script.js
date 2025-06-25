@@ -149,7 +149,7 @@
     erros: erros
   };
 
-  fetch("https://script.google.com/macros/s/AKfycbylcadu-TFnHfQFbgMW5dVp1f1eopok1HbF4DjpJwBl7YF9e8obZibX8Mb887TUQZgm/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbzEHFIpfR5FoJ4zx06BqmxxePwu8NEml5FOTJyPcWX27U0xz3SY8in1gRvNUT-NuOxS/exec", {
     method: "POST",
     body: JSON.stringify(payload),
     headers: {
